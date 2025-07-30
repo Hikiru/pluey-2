@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dd8jc3tyy7s4v"]
+
+[ext_resource type="PackedScene" uid="uid://ckgvd4ucy342x" path="res://player/player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://pwl5ikrkwb5a" path="res://fun box/funbox.tscn" id="2_0xm2m"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Melody" parent="." instance=ExtResource("1_ig7tw")]
+top_level = true
+position = Vector2(320, 352)
+scale = Vector2(2, 2)
+
+[node name="Label" type="Label" parent="."]
+offset_top = 1.0
+offset_right = 101.0
+offset_bottom = 34.0
+text = "pluey 2 alpha"
+
+[node name="Funbox" parent="." instance=ExtResource("2_0xm2m")]
+position = Vector2(568, 376)
