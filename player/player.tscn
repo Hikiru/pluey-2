@@ -1,0 +1,90 @@
+[gd_scene load_steps=14 format=3 uid="uid://ckgvd4ucy342x"]
+
+[ext_resource type="Script" uid="uid://cmkshta0grivs" path="res://player.gd" id="1_05x1w"]
+[ext_resource type="Texture2D" uid="uid://dmbqhlb0a134i" path="res://player/plr0000.png" id="2_0uskj"]
+[ext_resource type="Texture2D" uid="uid://d4ee2f2xyxq88" path="res://player/plr0001.png" id="3_vlp1b"]
+[ext_resource type="Texture2D" uid="uid://brcmqxdsg6vjp" path="res://player/plr0002.png" id="4_q0pxh"]
+[ext_resource type="Texture2D" path="/home/hikiru/Documents/Godot/pluey/player/mindwave.png" id="5_qjkh3"]
+[ext_resource type="Texture2D" uid="uid://kuocbygqyb4m" path="res://player/dot.png" id="6_g6k8r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7kjdi"]
+radius = 21.095
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_msrxg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0uskj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vlp1b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_q0pxh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 30.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g6k8r"]
+atlas = ExtResource("5_qjkh3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_boad6"]
+atlas = ExtResource("5_qjkh3")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgyib"]
+atlas = ExtResource("5_qjkh3")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hg6s5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g6k8r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_boad6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rgyib")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g6k8r"]
+radius = 16.0312
+
+[node name="Melody" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_05x1w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7kjdi")
+
+[node name="MelodySprite" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(3, 2)
+sprite_frames = SubResource("SpriteFrames_msrxg")
+frame_progress = 0.217027
+
+[node name="Mindwave" type="StaticBody2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -79)
+
+[node name="MindwaveSprite" type="AnimatedSprite2D" parent="Mindwave"]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_hg6s5")
+frame_progress = 0.436649
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mindwave"]
+shape = SubResource("CircleShape2D_g6k8r")
+
+[node name="Cursor" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -50)
+texture = ExtResource("6_g6k8r")
